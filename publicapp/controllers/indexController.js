@@ -39,7 +39,7 @@ exports.index_get =  function(req, res, next) {
             console.log(zip);
             for (dbZip of Object.keys(zipDB)){
                 if (dbZip.includes(zip)){
-                    //if (zip == '4035'){
+                    if (zip == '4035'){
                         bugCount =  compiledData[zip]['whitefly'];
                         bugCount = (bugCount * .10) | 0; 
                         for (i = 0; i < bugCount; i++){
@@ -47,7 +47,7 @@ exports.index_get =  function(req, res, next) {
                             markerDataLat.push(tmp[0]);
                             markerDataLong.push(tmp[1]);
                         }
-                    //}
+                    }
                 }
             }
 

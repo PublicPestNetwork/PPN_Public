@@ -8,6 +8,8 @@ block content
     }
   #map
 
+
+
   script.
     var map;
 
@@ -31,6 +33,6 @@ block content
         data: heatmapData
       });
       heatmap.setMap(map);
-
+    }
 
   script(async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&key=#{googleApiKey}&callback=initMap")
