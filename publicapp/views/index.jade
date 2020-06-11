@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  style.
+    #map {
+      width: 100%;
+      height: 500px;
+    }
+  #map
+
+  script.
+    var map;
+
+    function initMap() {
+      console.log("MARKERS");
+      markerDataLat = [#{markerLat}];
+      markerDataLong = [#{markerLong}];
+      console.log(Array.isArray(markerDataLat));
+      console.log(markerDataLat);
+      console.log(markerDataLong);
+      var heatmapData = [];
+      for (i = 0; i < markerDataLat.length; i++){
+        heatmapData.push( new google.maps.LatLng(markerDataLat[i], markerDataLong[i]))
+      }
+      //console.log(heatmapData);
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 38.052, lng: -84.493 },
+        zoom: 7
+      });
+      var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: heatmapData
+      });
+      heatmap.setMap(map);
+
+
+  script(async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&key=#{googleApiKey}&callback=initMap")
